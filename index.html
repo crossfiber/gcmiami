@@ -140,6 +140,12 @@ section{position:relative}
 .duplex-photo{position:sticky;top:calc(var(--nav-h) + 32px)}
 .duplex-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
 .duplex-photo figcaption{font-size:.9rem;color:var(--muted-l);margin-top:12px}
+.trust-card{margin-top:22px;padding-top:0;display:grid;gap:14px;justify-items:start}
+.trust-line{margin:0 0 14px;font-size:.98rem;color:var(--muted-l)}
+.trust-card .trust-line{margin:0}
+.trust-line b{font-family:var(--display);font-weight:400;font-size:1.35rem;color:var(--text-l);margin-right:2px}
+.trust-line a{color:var(--text-l);font-weight:700;text-underline-offset:3px}
+button{font-family:inherit}
 .prices-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;margin-bottom:36px}
 .ledger{list-style:none;margin:0;padding:0}
 .ledger li{display:grid;grid-template-columns:minmax(0,1fr) 88px;gap:20px;align-items:baseline;padding:20px 0;border-bottom:1px solid rgba(18,15,15,.12)}
@@ -152,26 +158,31 @@ section{position:relative}
 .prices-foot{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:32px}
 .prices-foot p{margin:0;flex:1 1 260px}
 
-/* pick your chair */
-.chair-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:40px;align-items:end;margin-bottom:48px}
-.chair{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px;align-items:start}
-.roster{list-style:none;margin:0;padding:0;display:grid;gap:4px}
-.roster button{width:100%;display:grid;grid-template-columns:minmax(0,1fr);text-align:left;background:none;border:0;border-left:3px solid transparent;padding:14px 18px;color:var(--muted-d);cursor:pointer;font-family:var(--body);transition:background .2s,color .2s,border-color .2s;min-height:44px}
-.roster .nm{font-family:var(--display);text-transform:uppercase;font-size:1.9rem;line-height:1.05;color:var(--text-d)}
-.roster .tg{font-size:.93rem;margin-top:3px}
-.roster button:hover{background:rgba(243,238,231,.05)}
-.roster button[aria-pressed="true"]{background:var(--ink-3);border-left-color:var(--copper);color:var(--text-d)}
-.roster button[aria-pressed="true"] .nm{color:var(--copper)}
-.stage{display:grid}
-.panel{grid-area:1/1;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:40px;align-items:start;opacity:0;visibility:hidden;transition:opacity .3s}
-.panel.on{opacity:1;visibility:visible}
-.panel[hidden]{display:none}
-.plate{background:#0b0909;border-radius:4px;height:520px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
-.plate img{height:100%;width:auto;max-width:100%;object-fit:contain}
-.panel h3{font-size:2.6rem;margin-bottom:6px}
-.panel .role{color:var(--muted-d);font-weight:700;margin-bottom:18px}
-.panel .bio p{color:var(--text-d);font-size:1.02rem}
-.panel .btn{margin-top:8px}
+/* crew */
+.crew-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 28px}
+.barber-open{display:flex;flex-direction:column;width:100%;height:100%;background:none;border:0;padding:0;margin:0;text-align:left;color:inherit;font:inherit;cursor:pointer}
+.barber-photo{display:block;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:4px;background:#0b0909}
+.barber-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;filter:grayscale(1) contrast(1.08);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.barber-open:hover .barber-photo img{transform:scale(1.02)}
+.barber-name{font-family:var(--display);text-transform:uppercase;font-size:2.1rem;line-height:1;margin-top:18px;color:var(--text-d)}
+.barber-tag{color:var(--muted-d);font-size:.98rem;margin-top:6px}
+.barber-more{margin-top:10px;color:var(--copper);font-weight:700;font-size:.95rem;text-decoration:underline;text-underline-offset:4px}
+.barber-open:hover .barber-more{color:var(--copper-hi)}
+.bmodal{position:fixed;inset:0;z-index:120;height:100dvh;background:rgba(0,0,0,.74);display:flex;align-items:center;justify-content:center;padding:max(20px,env(safe-area-inset-top)) 20px max(20px,env(safe-area-inset-bottom))}
+.bmodal[hidden]{display:none}
+.bmodal-card{position:relative;width:100%;max-width:1060px;max-height:calc(100dvh - 40px);overflow:auto;background:var(--ink-2);border-radius:4px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.bmodal-close{position:absolute;top:10px;right:10px;z-index:2;width:48px;height:48px;border:0;border-radius:2px;background:var(--ink);color:var(--text-d);font-size:1.4rem;cursor:pointer}
+.bmodal-body{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);min-height:560px}
+.bm-photo{background:#0b0909;min-height:100%}
+.bm-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;filter:grayscale(1) contrast(1.08)}
+.bm-copy{padding:52px 48px 44px}
+.bm-copy h3{font-size:2.8rem;margin-bottom:6px;padding-right:48px}
+.bm-tag{color:var(--muted-d);font-weight:700;margin-bottom:20px}
+.bm-copy p{font-size:1.02rem}
+.b-rev{margin:22px 0 26px;padding:16px 20px;background:var(--ink-3);border-radius:4px}
+.b-rev p{margin:0 0 6px;font-size:1rem}
+.b-rev cite{font-style:normal;color:var(--muted-d);font-size:.9rem}
+body.modal-open{overflow:hidden}
 
 /* family */
 .family{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:stretch}
@@ -200,27 +211,34 @@ section{position:relative}
 .pay-cta span{color:var(--muted-d);font-size:.95rem}
 
 /* reviews */
-.rev-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:start;margin-top:48px}
-.feature{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.7rem,2.8vw,2.45rem);line-height:1.15;margin:0 0 20px}
-.who{font-weight:700;margin-bottom:22px}
-.who span{font-weight:400;color:var(--muted-l)}
-.reply{background:var(--cream-2);border-radius:4px;padding:18px 22px;max-width:560px}
-.reply b{display:block;font-size:.95rem;margin-bottom:4px}
-.reply p{margin:0;font-size:1rem}
-.minor{display:grid;gap:28px}
-.minor blockquote{margin:0;font-size:1.05rem}
-.minor blockquote p{margin-bottom:8px}
-.minor cite{font-style:normal;font-weight:700;font-size:.95rem}
-.minor cite span{font-weight:400;color:var(--muted-l)}
-.rev-links{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;margin-top:12px}
-.rev-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:end}
-.score-line{font-size:1.02rem;color:var(--muted-l);text-align:right}
-.score-line b{font-family:var(--display);font-size:2.4rem;color:var(--text-l);display:block;line-height:1;font-weight:400}
+.rev-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
+.scores{display:flex;gap:36px}
+.scores a{text-decoration:none;color:var(--text-l)}
+.scores b{display:block;font-family:var(--display);font-weight:400;font-size:2.8rem;line-height:1}
+.scores span{display:block;color:var(--muted-l);font-size:.95rem;margin-top:4px;text-decoration:underline;text-underline-offset:3px}
+.rev-wall{columns:3;column-gap:24px;margin-top:48px}
+.rv{break-inside:avoid;background:var(--cream-2);border-radius:4px;padding:26px 26px 22px;margin:0 0 24px}
+.rv-stars{color:#7a4719;letter-spacing:3px;font-size:.9rem;margin:0 0 10px}
+.rv-q{font-size:1.04rem;line-height:1.6;margin:0 0 16px}
+.rv-by{font-weight:700;font-size:.98rem;margin:0}
+.rv-by span{display:block;font-weight:400;color:var(--muted-l);font-size:.88rem;margin-top:2px}
+.rv-reply{margin-top:18px;padding:14px 16px;background:var(--cream);border-radius:4px}
+.rv-reply b{display:block;font-size:.9rem;margin-bottom:3px}
+.rv-reply p{margin:0;font-size:.96rem}
+.rv-lead{background:var(--ink);color:var(--text-d)}
+.rv-lead .rv-stars{color:var(--text-d)}
+.rv-lead .rv-q{font-size:1.2rem;line-height:1.55}
+.rv-lead .rv-by span{color:var(--muted-d)}
+.rv-lead .rv-reply{background:var(--ink-3)}
+.rev-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:8px}
+.rail-nav{display:none;gap:8px}
+.rail-nav button{width:48px;height:48px;border:2px solid var(--ink);border-radius:2px;background:transparent;color:var(--ink);font-size:1.1rem;cursor:pointer}
+.rail-nav button:hover{background:var(--ink);color:var(--cream)}
 
 /* still deciding */
 .decide-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
 .sig{display:flex;align-items:center;gap:16px;margin-top:26px}
-.sig img{width:72px;height:72px;border-radius:4px;object-fit:cover;object-position:50% 12%}
+.sig img{width:72px;height:72px;border-radius:4px;object-fit:cover;object-position:50% 12%;filter:grayscale(1) contrast(1.08)}
 .sig b{display:block}
 .sig span{color:var(--muted-d);font-size:.93rem}
 .acc{list-style:none;margin:0;padding:0}
@@ -276,8 +294,9 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
   .nav-links,.nav-cta{display:none}
   .hamburger{display:inline-flex;align-items:center;justify-content:center;margin-left:0}
   .call-sm{display:inline-flex;margin-left:auto}
-  .panel{grid-template-columns:minmax(0,1fr)}
-  .plate{height:440px}
+  .crew-grid{gap:32px 20px}
+  .bmodal-body{grid-template-columns:minmax(0,1fr);min-height:0}
+  .bm-photo img{height:380px}
   .family{grid-template-columns:minmax(0,1fr)}
   .family-photo img{min-height:0;height:auto;aspect-ratio:1440/937}
   .family-copy{padding:72px var(--pad)}
@@ -302,6 +321,7 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
   #prices .ghost{display:none}
   .duplex{grid-template-columns:minmax(0,1fr);gap:28px}
   .duplex-photo{position:static;order:-1}
+  .trust-card{justify-items:stretch}
   .duplex-photo img{aspect-ratio:16/9}
   .prices-head{grid-template-columns:minmax(0,1fr);gap:12px;margin-bottom:20px}
   .ledger li{grid-template-columns:minmax(0,1fr) 64px;gap:12px;padding:15px 0}
@@ -309,24 +329,29 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
   .ledger p{font-size:.94rem}
   .price{font-size:1.7rem}
   .chair-head{grid-template-columns:minmax(0,1fr);gap:12px;margin-bottom:24px}
-  .chair{grid-template-columns:minmax(0,1fr);gap:22px}
-  .roster{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
-  .roster button{padding:10px 8px;border-left:0;border-bottom:3px solid transparent;text-align:center;background:var(--ink-2)}
-  .roster button[aria-pressed="true"]{border-bottom-color:var(--copper)}
-  .roster .nm{font-size:1.25rem}
-  .roster .tg{display:none}
-  .panel{gap:18px}
-  .plate{height:340px}
-  .panel h3{font-size:2rem}
-  .panel .bio p{font-size:.98rem}
+  .crew-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 14px}
+  .barber-name{font-size:1.45rem;margin-top:12px}
+  .barber-tag{font-size:.86rem;line-height:1.35}
+  .barber-more{font-size:.88rem;margin-top:8px}
+  .bmodal{padding:12px}
+  .bmodal-card{max-height:calc(100dvh - 24px)}
+  .bm-photo img{height:340px}
+  .bm-copy{padding:26px 20px 28px}
+  .bm-copy h3{font-size:2.1rem}
+  .bm-copy p{font-size:.98rem}
   .family-copy{padding:56px var(--pad)}
   .family-copy .ghost{display:none}
   .pay-grid{grid-template-columns:minmax(0,1fr);gap:28px}
   .steps li{grid-template-columns:44px minmax(0,1fr);gap:12px;padding:14px 0}
   .steps li::before{font-size:2.1rem}
-  .rev-head{grid-template-columns:minmax(0,1fr);gap:14px}
-  .score-line{text-align:left}
-  .rev-grid{grid-template-columns:minmax(0,1fr);gap:36px;margin-top:28px}
+  .rev-head{grid-template-columns:minmax(0,1fr);gap:18px}
+  .scores b{font-size:2.2rem}
+  .rev-wall{columns:auto;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:28px calc(-1 * var(--pad)) 0;padding:0 var(--pad) 4px;scroll-padding:0 var(--pad);scrollbar-width:none}
+  .rev-wall::-webkit-scrollbar{display:none}
+  .rv{flex:0 0 84%;scroll-snap-align:center;margin:0;padding:22px 20px 20px}
+  .rv-lead .rv-q{font-size:1.06rem}
+  .rev-foot{margin-top:18px}
+  .rail-nav{display:flex;width:100%}
   .decide-grid{grid-template-columns:minmax(0,1fr);gap:28px}
   .acc-head{font-size:1.06rem;padding:18px 0}
   .visit-grid{grid-template-columns:minmax(0,1fr);gap:28px;margin-top:24px}
@@ -337,7 +362,7 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
 }
 @media (max-width:380px){
   .hero h1{font-size:2.45rem}
-  .roster .nm{font-size:1.1rem}
+  .barber-name{font-size:1.25rem}
 }
 </style>
 </head>
@@ -420,6 +445,10 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
     <figure class="duplex-photo" style="margin:0">
       <img src="assets/rome-cutting.jpg" alt="Rome, owner of GC Miami Barbers, detailing a client's fade with clippers and a comb" width="1200" height="900" loading="lazy">
       <figcaption>Rome, El Jefe, at the chair. Cutting since he was 15.</figcaption>
+      <div class="trust-card">
+        <p class="trust-line"><b>4.7</b> on Google from 264 reviews · <a href="#reviews">Read them</a></p>
+        <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book a Cut, Pay in Person</a>
+      </div>
     </figure>
     <div>
       <div class="prices-head">
@@ -436,7 +465,6 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
       </ul>
       <div class="prices-foot">
         <p><b>Looking for something else?</b> Give the shop a call for additional services and availability.</p>
-        <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book a Cut</a>
         <a class="tlink" href="tel:+13052345202">305-234-5202</a>
       </div>
     </div>
@@ -446,86 +474,132 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
 <section class="dark sec" id="crew" aria-labelledby="crew-h">
   <div class="wrap">
     <div class="chair-head">
-      <h2 class="h2" id="crew-h">Pick your chair</h2>
-      <p class="side">Six barbers, six personalities. Tap a name, get to know the man holding the clippers, then book with him.</p>
+      <h2 class="h2" id="crew-h">Get to know us</h2>
+      <p class="side">Six barbers, six personalities. Pick the chair that fits, read the man behind the clippers, then book with him.</p>
     </div>
-    <div class="chair">
-      <ul class="roster" role="list">
-        <li><button type="button" aria-pressed="true" aria-controls="p-rome" data-p="p-rome"><span class="nm">Rome</span><span class="tg">El Jefe · the razor</span></button></li>
-        <li><button type="button" aria-pressed="false" aria-controls="p-lino" data-p="p-lino"><span class="nm">Lino</span><span class="tg">Classic cuts · the kids love him</span></button></li>
-        <li><button type="button" aria-pressed="false" aria-controls="p-gio" data-p="p-gio"><span class="nm">Gio</span><span class="tg">The Mullet Master</span></button></li>
-        <li><button type="button" aria-pressed="false" aria-controls="p-joe" data-p="p-joe"><span class="nm">Joe</span><span class="tg">The elder statesman</span></button></li>
-        <li><button type="button" aria-pressed="false" aria-controls="p-benji" data-p="p-benji"><span class="nm">Benji</span><span class="tg">Hands like NyQuil</span></button></li>
-        <li><button type="button" aria-pressed="false" aria-controls="p-george" data-p="p-george"><span class="nm">George</span><span class="tg">Dread · Messi's biggest fan</span></button></li>
-      </ul>
-      <div class="stage">
-        <article class="panel on" id="p-rome">
-          <div class="plate"><img src="assets/barber-rome.jpg" alt="Rome, El Jefe, owner of GC Miami Barbers, in a black Culture t-shirt" width="900" height="1350" loading="lazy"></div>
-          <div class="bio">
-            <h3>Rome (El Jefe)</h3>
-            <p class="role">Owner · Army vet · razor man</p>
-            <p>Army vet, Muay Thai addict, resident smartass, lover of long walks off short piers, and absolutely everything his wife cooks, because he's been married long enough to know there's only one correct answer.</p>
-            <p>Rome's been cutting hair since he was 15, starting under the shade tree and eventually taking his clippers around the world, cutting hair everywhere from Korea and Thailand to Egypt and plenty of places in between.</p>
-            <p>With decades behind the chair, he's well-versed in damn near every style under the sun. Fades, tapers, shear work, beards, old-school cuts, new-school cuts. You name it. The razor is his weapon of choice, and his attention to detail is borderline unhealthy.</p>
-            <p>Book a cut, pull up a chair, and shoot the breeze. Around here, clients have a funny way of turning into family.</p>
-            <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book with Rome</a>
-          </div>
-        </article>
-        <article class="panel" id="p-lino" hidden>
-          <div class="plate"><img src="assets/barber-lino.jpg" alt="Lino, barber at GC Miami Barbers, in a Yankees cap and leather apron" width="900" height="1080" loading="lazy"></div>
-          <div class="bio">
-            <h3>Lino</h3>
-            <p class="role">Classic cuts · shears · fútbol</p>
-            <p>Straight outta Venezuela. Classic cuts are his bread and butter, the shears are his weapon of choice, and the kids love him.</p>
-            <p>Soccer isn't a hobby. It's a religion. Legend has it he once wrestled a soccer ball out of an alligator's mouth just to finish the game. If you love fútbol, grab his chair. Just don't talk trash about his team unless you're prepared to defend your entire bloodline.</p>
-            <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book with Lino</a>
-          </div>
-        </article>
-        <article class="panel" id="p-gio" hidden>
-          <div class="plate"><img src="assets/barber-gio.jpg" alt="Gio, the youngest barber at GC Miami Barbers, smiling in a leather apron" width="900" height="1350" loading="lazy"></div>
-          <div class="bio">
-            <h3>Gio</h3>
-            <p class="role">The Mullet Master · clipper work</p>
-            <p>The youngest of the crew, but don't let that fool you. The kid is nasty with the clippers.</p>
-            <p>Gio started here doing community service in high school, learned the trade, went to barber school, graduated, and came right back home. Now known as the Mullet Master, he's the go-to for younger styles and anything that needs serious clipper work.</p>
-            <p>Legend has it he used to chase dogs down the street in a Speedo to improve his speed. We never asked questions. The training clearly worked.</p>
-            <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book with Gio</a>
-          </div>
-        </article>
-        <article class="panel" id="p-joe" hidden>
-          <div class="plate"><img src="assets/barber-joe.jpg" alt="Joe, the elder statesman of the GC Miami Barbers crew, with a grey beard" width="900" height="1125" loading="lazy"></div>
-          <div class="bio">
-            <h3>Joe</h3>
-            <p class="role">The elder statesman · shears · stories</p>
-            <p>The elder statesman of the crew, and a comedian by trade. Joe's been cutting hair longer than some of us have been alive, and yes, he's heard the Cedric the Entertainer comparison about 47,000 times. Give him a pair of shears and he's right at home.</p>
-            <p>His signature cut? "The Republican." Clean, conservative, parted, and ready for a press conference. He's got decades behind the chair and even longer stories. Book accordingly: you might leave with a haircut and a two-drink minimum.</p>
-            <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book with Joe</a>
-          </div>
-        </article>
-        <article class="panel" id="p-benji" hidden>
-          <div class="plate"><img src="assets/barber-benji.jpg" alt="Benji, barber at GC Miami Barbers, in glasses holding clippers" width="900" height="1200" loading="lazy"></div>
-          <div class="bio">
-            <h3>Benji</h3>
-            <p class="role">Harleys · guitars · lights out</p>
-            <p>Benji is basically the white Joe, and Joe is the Black Benji. Don't ask. We don't make the rules.</p>
-            <p>A laid-back redneck who loves Harleys, can talk cars all damn day, and is just as likely to have a guitar in his hands as clippers. But once you hit his chair, it's lights out. The man's hands are basically NyQuil. You'll come in for a haircut, wake up 30 minutes later looking fresh, with no idea what happened.</p>
-            <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book with Benji</a>
-          </div>
-        </article>
-        <article class="panel" id="p-george" hidden>
-          <div class="plate"><img src="assets/barber-george.jpg" alt="George, known as Dread, barber at GC Miami Barbers, with dreadlocks and a cap" width="900" height="750" loading="lazy"></div>
-          <div class="bio">
-            <h3>George (Dread)</h3>
-            <p class="role">Razor · clean lines · Messi</p>
-            <p>Straight outta Argentina, George is well-traveled, loves mountain biking, camping, the outdoors, and apparently Lionel Messi more than most of his immediate family.</p>
-            <p>Legend has it he once spotted Messi at Publix and abandoned a full shopping cart, his dignity, and possibly a small child just to shake his hand. Soccer runs deep, but the razor is his weapon of choice. Clean lines, sharp details, and plenty of stories from wherever the hell he's been lately. Just mention Messi and clear your schedule.</p>
-            <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book with George</a>
-          </div>
-        </article>
-      </div>
-    </div>
+    <ul class="crew-grid" role="list">
+        <li>
+          <button type="button" class="barber-open" data-b="b-rome" aria-haspopup="dialog">
+            <span class="barber-photo"><img src="assets/barber-rome.jpg" alt="Rome, El Jefe, owner of GC Miami Barbers, in a black Culture t-shirt" width="900" height="1350" loading="lazy"></span>
+            <span class="barber-name">Rome</span>
+            <span class="barber-tag">El Jefe · Army vet</span>
+            <span class="barber-more">Meet Rome</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="barber-open" data-b="b-lino" aria-haspopup="dialog">
+            <span class="barber-photo"><img src="assets/barber-lino.jpg" alt="Lino, barber at GC Miami Barbers, in a Yankees cap and leather apron" width="900" height="1080" loading="lazy"></span>
+            <span class="barber-name">Lino</span>
+            <span class="barber-tag">The kids' favorite</span>
+            <span class="barber-more">Meet Lino</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="barber-open" data-b="b-gio" aria-haspopup="dialog">
+            <span class="barber-photo"><img src="assets/barber-gio.jpg" alt="Gio, the youngest barber at GC Miami Barbers, smiling in a leather apron" width="900" height="1350" loading="lazy"></span>
+            <span class="barber-name">Gio</span>
+            <span class="barber-tag">The Mullet Master</span>
+            <span class="barber-more">Meet Gio</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="barber-open" data-b="b-joe" aria-haspopup="dialog">
+            <span class="barber-photo"><img src="assets/barber-joe.jpg" alt="Joe, the elder statesman of the GC Miami Barbers crew, with a grey beard" width="900" height="1125" loading="lazy"></span>
+            <span class="barber-name">Joe</span>
+            <span class="barber-tag">The elder statesman</span>
+            <span class="barber-more">Meet Joe</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="barber-open" data-b="b-benji" aria-haspopup="dialog">
+            <span class="barber-photo"><img src="assets/barber-benji.jpg" alt="Benji, barber at GC Miami Barbers, in glasses holding clippers" width="900" height="1200" loading="lazy"></span>
+            <span class="barber-name">Benji</span>
+            <span class="barber-tag">Hands like NyQuil</span>
+            <span class="barber-more">Meet Benji</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="barber-open" data-b="b-george" aria-haspopup="dialog">
+            <span class="barber-photo"><img src="assets/barber-george.jpg" alt="George, known as Dread, barber at GC Miami Barbers, with dreadlocks and a cap" width="900" height="750" loading="lazy"></span>
+            <span class="barber-name">George</span>
+            <span class="barber-tag">Messi's biggest fan</span>
+            <span class="barber-more">Meet George</span>
+          </button>
+        </li>
+    </ul>
+      <template id="b-rome">
+        <div class="bm-photo"><img src="assets/barber-rome.jpg" alt="Rome, El Jefe, owner of GC Miami Barbers, in a black Culture t-shirt" width="900" height="1350"></div>
+        <div class="bm-copy">
+          <h3 id="bm-title">Rome (El Jefe)</h3>
+          <p class="bm-tag">El Jefe · Army vet</p>
+          <p>Army vet, Muay Thai addict, resident smartass, lover of long walks off short piers, and absolutely everything his wife cooks, because he's been married long enough to know there's only one correct answer.</p>
+          <p>Rome's been cutting hair since he was 15, starting under the shade tree and eventually taking his clippers around the world, cutting hair everywhere from Korea and Thailand to Egypt and plenty of places in between.</p>
+          <p>With decades behind the chair, he's well-versed in damn near every style under the sun. Fades, tapers, shear work, beards, old-school cuts, new-school cuts. You name it. The razor is his weapon of choice, and his attention to detail is borderline unhealthy.</p>
+          <p>Book a cut, pull up a chair, and shoot the breeze. Around here, clients have a funny way of turning into family.</p>
+          <blockquote class="b-rev"><p>"Best barbershop in town. Rome is my go to guy. Really friendly."</p><cite>Faisal H., Google</cite></blockquote>
+          <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book with Rome</a>
+        </div>
+      </template>
+      <template id="b-lino">
+        <div class="bm-photo"><img src="assets/barber-lino.jpg" alt="Lino, barber at GC Miami Barbers, in a Yankees cap and leather apron" width="900" height="1080"></div>
+        <div class="bm-copy">
+          <h3 id="bm-title">Lino</h3>
+          <p class="bm-tag">The kids' favorite</p>
+          <p>Straight outta Venezuela. Classic cuts are his bread and butter, the shears are his weapon of choice, and the kids love him.</p>
+          <p>Soccer isn't a hobby. It's a religion. Legend has it he once wrestled a soccer ball out of an alligator's mouth just to finish the game. If you love fútbol, grab his chair. Just don't talk trash about his team unless you're prepared to defend your entire bloodline.</p>
+          <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book with Lino</a>
+        </div>
+      </template>
+      <template id="b-gio">
+        <div class="bm-photo"><img src="assets/barber-gio.jpg" alt="Gio, the youngest barber at GC Miami Barbers, smiling in a leather apron" width="900" height="1350"></div>
+        <div class="bm-copy">
+          <h3 id="bm-title">Gio</h3>
+          <p class="bm-tag">The Mullet Master</p>
+          <p>The youngest of the crew, but don't let that fool you. The kid is nasty with the clippers.</p>
+          <p>Gio started here doing community service in high school, learned the trade, went to barber school, graduated, and came right back home. Now known as the Mullet Master, he's the go-to for younger styles and anything that needs serious clipper work.</p>
+          <p>Legend has it he used to chase dogs down the street in a Speedo to improve his speed. We never asked questions. The training clearly worked.</p>
+          <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book with Gio</a>
+        </div>
+      </template>
+      <template id="b-joe">
+        <div class="bm-photo"><img src="assets/barber-joe.jpg" alt="Joe, the elder statesman of the GC Miami Barbers crew, with a grey beard" width="900" height="1125"></div>
+        <div class="bm-copy">
+          <h3 id="bm-title">Joe</h3>
+          <p class="bm-tag">The elder statesman</p>
+          <p>The elder statesman of the crew, and a comedian by trade. Joe's been cutting hair longer than some of us have been alive, and yes, he's heard the Cedric the Entertainer comparison about 47,000 times. Give him a pair of shears and he's right at home.</p>
+          <p>His signature cut? "The Republican." Clean, conservative, parted, and ready for a press conference. He's got decades behind the chair and even longer stories. Book accordingly: you might leave with a haircut and a two-drink minimum.</p>
+          <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book with Joe</a>
+        </div>
+      </template>
+      <template id="b-benji">
+        <div class="bm-photo"><img src="assets/barber-benji.jpg" alt="Benji, barber at GC Miami Barbers, in glasses holding clippers" width="900" height="1200"></div>
+        <div class="bm-copy">
+          <h3 id="bm-title">Benji</h3>
+          <p class="bm-tag">Hands like NyQuil</p>
+          <p>Benji is basically the white Joe, and Joe is the Black Benji. Don't ask. We don't make the rules.</p>
+          <p>A laid-back redneck who loves Harleys, can talk cars all damn day, and is just as likely to have a guitar in his hands as clippers. But once you hit his chair, it's lights out. The man's hands are basically NyQuil. You'll come in for a haircut, wake up 30 minutes later looking fresh, with no idea what happened.</p>
+          <blockquote class="b-rev"><p>"Benji has been my son's barber for 10 years love the family atmosphere."</p><cite>Janet T., Yelp</cite></blockquote>
+          <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book with Benji</a>
+        </div>
+      </template>
+      <template id="b-george">
+        <div class="bm-photo"><img src="assets/barber-george.jpg" alt="George, known as Dread, barber at GC Miami Barbers, with dreadlocks and a cap" width="900" height="750"></div>
+        <div class="bm-copy">
+          <h3 id="bm-title">George (Dread)</h3>
+          <p class="bm-tag">Messi's biggest fan</p>
+          <p>Straight outta Argentina, George is well-traveled, loves mountain biking, camping, the outdoors, and apparently Lionel Messi more than most of his immediate family.</p>
+          <p>Legend has it he once spotted Messi at Publix and abandoned a full shopping cart, his dignity, and possibly a small child just to shake his hand. Soccer runs deep, but the razor is his weapon of choice. Clean lines, sharp details, and plenty of stories from wherever the hell he's been lately. Just mention Messi and clear your schedule.</p>
+          <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book with George</a>
+        </div>
+      </template>
   </div>
 </section>
+<div class="bmodal" id="bmodal" role="dialog" aria-modal="true" aria-labelledby="bm-title" hidden>
+  <div class="bmodal-card">
+    <button type="button" class="bmodal-close" id="bmClose" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <div class="bmodal-body" id="bmBody"></div>
+  </div>
+</div>
 
 <section class="cream" id="about" aria-labelledby="about-h">
   <div class="family">
@@ -568,25 +642,52 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
   <div class="wrap">
     <div class="rev-head">
       <h2 class="h2" id="rev-h">Love us or hate us.<br> Say it with your chest</h2>
-      <p class="score-line"><b>4.7 &#9733;</b>264 reviews on Google</p>
+      <div class="scores">
+        <a href="https://share.google/0dQyRPChGT6IBClJD" target="_blank" rel="noopener"><b>4.7</b><span>264 reviews on Google</span></a>
+        <a href="https://www.yelp.com/biz/gc-miami-barbers-shave-and-grooming-co-palmetto-bay" target="_blank" rel="noopener"><b>4.6</b><span>118 reviews on Yelp</span></a>
+      </div>
     </div>
-    <div class="rev-grid">
-      <div>
-        <blockquote style="margin:0">
-          <p class="feature">"Every time I walk in here I feel empowered by the awesome quotes and the energy from all the staff."</p>
-          <p style="font-size:1.06rem">I get a great haircut and always leave feeling more confident than when I walked in. This place is the real deal. If you're looking for a spot for a great haircut experience this is it! Rome will take good care of you.</p>
-          <p class="who">Cayetano Calle <span>· Google review</span></p>
-        </blockquote>
-        <div class="reply"><b>Rome replied</b><p>You are a gentleman and a scholar my friend! Always a pleasure having you on my chair! #respect</p></div>
+    <div class="rev-wall" id="revWall">
+      <article class="rv rv-lead">
+        <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rv-q">"Every time I walk in here I feel empowered by the awesome quotes and the energy from all the staff. I get a great haircut and always leave feeling more confident than when I walked in. This place is the real deal. If you're looking for a spot for a great haircut experience this is it! Rome will take good care of you."</p>
+        <p class="rv-by">Cayetano Calle <span>Google · Jun 2026</span></p>
+        <div class="rv-reply"><b>Rome, owner</b><p>You are a gentleman and a scholar my friend! Always a pleasure having you on my chair! #respect</p></div>
+      </article>
+      <article class="rv">
+        <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rv-q">"Best barbershop in Miami-Dade. Seriously chill family place with good vibes for everyone."</p>
+        <p class="rv-by">Mike F. <span>Yelp · Oct 2025</span></p>
+      </article>
+      <article class="rv">
+        <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rv-q">"My regular barber for the past five years retired and I found this place through Yelp. Geo took care of me like he'd been cutting my hair for 20 years. Friendly, fast, understood what I wanted with very little explanation and impeccable attention to detail. Best cut I've had in a looong time. Consider me a loyal client."</p>
+        <p class="rv-by">Eric S. <span>Yelp · Jul 2025</span></p>
+      </article>
+      <article class="rv">
+        <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rv-q">"Rome &amp; his crew run a clean shop and super relaxed atmosphere. Affordable and they always show up, hard to find in Miami! Got me looking right for my wedding!"</p>
+        <p class="rv-by">Hart Outfitters <span>Google</span></p>
+      </article>
+      <article class="rv">
+        <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rv-q">"Contacted Rome to see if they had any open chairs (seeing as I'm new in the area and i know how hard it is to get in on a local barber shop). Walked in and Rome had some time before his next slot so he fit me in."</p>
+        <p class="rv-by">Viper Zero <span>Google</span></p>
+        <div class="rv-reply"><b>Rome, owner</b><p>My man!! It was a pleasure taking care of you brother! You're Welcomed on my chair any day! See you in a couple of weeks! Welcome to the neighborhood and thanks for the review!</p></div>
+      </article>
+      <article class="rv">
+        <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rv-q">"I recently brought my son here for a haircut with Rome. It was a great experience and we are very happy with how it turned out! The shop has a good vibe and we will definitely be back :)"</p>
+        <p class="rv-by">Jules E. <span>Yelp · Sep 2025</span></p>
+      </article>
+    </div>
+    <div class="rev-foot">
+      <div class="rail-nav" aria-label="Scroll reviews">
+        <button type="button" id="revPrev" aria-label="Previous review"><i class="fa-solid fa-arrow-left-long" aria-hidden="true"></i></button>
+        <button type="button" id="revNext" aria-label="Next review"><i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></button>
       </div>
-      <div class="minor">
-        <blockquote><p>"Contacted Rome to see if they had any open chairs (seeing as I'm new in the area and i know how hard it is to get in on a local barber shop). Walked in and Rome had some time before his next slot so he fit me in. Super clean location."</p><cite>Viper Zero <span>· Google review</span></cite></blockquote>
-        <blockquote><p>"Got me looking right for my wedding!"</p><cite>Hart Outfitters <span>· Google review</span></cite></blockquote>
-        <div class="rev-links">
-          <a class="btn btn-line" href="https://share.google/0dQyRPChGT6IBClJD" target="_blank" rel="noopener">Read all 264</a>
-          <a class="tlink" href="https://share.google/0dQyRPChGT6IBClJD" target="_blank" rel="noopener">Leave yours</a>
-        </div>
-      </div>
+      <a class="btn btn-line" href="https://share.google/0dQyRPChGT6IBClJD" target="_blank" rel="noopener">Read all 264 on Google</a>
+      <a class="tlink" href="https://share.google/0dQyRPChGT6IBClJD" target="_blank" rel="noopener">Been in the chair? Leave yours</a>
     </div>
   </div>
 </section>
@@ -643,6 +744,7 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
             <tr data-d="0"><th scope="row">Sunday</th><td>Closed</td></tr>
           </tbody>
         </table>
+        <p class="trust-line"><b>4.7</b> on Google from 264 reviews · <a href="#reviews">Read them</a></p>
         <div class="visit-btns">
           <a class="btn btn-book full" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book Now, Pay in Person</a>
           <a class="btn btn-line" href="tel:+13052345202">Call 305-234-5202</a>
@@ -730,21 +832,28 @@ if ('scrollRestoration' in history) { history.scrollRestoration = 'auto'; }
     });
   });
 
-  /* pick your chair */
-  var btns = document.querySelectorAll('.roster button');
-  btns.forEach(function(b){
-    b.addEventListener('click', function(){
-      btns.forEach(function(o){ o.setAttribute('aria-pressed','false'); });
-      b.setAttribute('aria-pressed','true');
-      document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('on'); p.hidden = true; });
-      var p = document.getElementById(b.getAttribute('data-p'));
-      p.hidden = false; void p.offsetWidth; p.classList.add('on');
-      if (window.innerWidth <= 880) {
-        var r = p.getBoundingClientRect();
-        if (r.top > window.innerHeight * .6) { p.scrollIntoView({behavior:'smooth', block:'start'}); }
-      }
-    });
-  });
+  /* crew modal */
+  var bm = document.getElementById('bmodal'), bmBody = document.getElementById('bmBody'), bmClose = document.getElementById('bmClose'), lastOpen = null;
+  function openBarber(btn){
+    lastOpen = btn;
+    bmBody.innerHTML = '';
+    bmBody.appendChild(document.getElementById(btn.getAttribute('data-b')).content.cloneNode(true));
+    bm.hidden = false; document.body.classList.add('modal-open');
+    bm.querySelector('.bmodal-card').scrollTop = 0; bmClose.focus();
+  }
+  function closeBarber(){ bm.hidden = true; document.body.classList.remove('modal-open'); if (lastOpen) lastOpen.focus(); }
+  document.querySelectorAll('.barber-open').forEach(function(b){ b.addEventListener('click', function(){ openBarber(b); }); });
+  bmClose.addEventListener('click', closeBarber);
+  bm.addEventListener('click', function(e){ if (e.target === bm) closeBarber(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !bm.hidden) closeBarber(); });
+
+  /* reviews rail (mobile) */
+  var rail = document.getElementById('revWall'), rp = document.getElementById('revPrev'), rn = document.getElementById('revNext');
+  if (rail && rp && rn) {
+    var step = function(){ var c = rail.querySelector('.rv'); return c ? c.getBoundingClientRect().width + 14 : 320; };
+    rp.addEventListener('click', function(){ rail.scrollBy({left: -step(), behavior:'smooth'}); });
+    rn.addEventListener('click', function(){ rail.scrollBy({left: step(), behavior:'smooth'}); });
+  }
 
   /* accordion */
   document.querySelectorAll('.acc-head').forEach(function(btn){
