@@ -64,7 +64,7 @@ main:focus{outline:none}
 .btn-line:hover{background:var(--text-d);color:var(--ink);transform:translateY(-2px)}
 .cream .btn-line{border-color:var(--ink);color:var(--ink)}
 .cream .btn-line:hover{background:var(--ink);color:var(--cream)}
-.tlink{color:var(--copper);font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.tlink{color:var(--copper);font-weight:700;text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
 .cream .tlink,.proof .tlink{color:var(--ink)}
 
 /* nav */
@@ -80,7 +80,7 @@ main:focus{outline:none}
 .nav-phone{color:var(--copper);font-weight:700;text-decoration:none;white-space:nowrap}
 .nav-phone:hover{text-decoration:underline}
 .hamburger{display:none;margin-left:auto;background:none;border:0;color:var(--text-d);width:48px;height:48px;font-size:1.5rem;cursor:pointer}
-.call-sm{display:none;color:var(--copper);width:44px;height:44px;align-items:center;justify-content:center;font-size:1.15rem}
+.call-sm{display:none;color:var(--copper);width:44px;height:44px;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none}
 
 /* drawer */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .3s;z-index:90}
@@ -91,10 +91,14 @@ main:focus{outline:none}
 .drawer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
 .drawer-top img{width:52px;height:52px;border-radius:50%}
 .drawer-close{background:none;border:0;color:var(--text-d);width:48px;height:48px;font-size:1.6rem;cursor:pointer}
-.drawer ul{list-style:none;margin:0;padding:0}
-.drawer li a{display:block;font-family:var(--display);text-transform:uppercase;font-size:2rem;line-height:1.2;padding:10px 0;text-decoration:none;color:var(--text-d)}
+.drawer ul{list-style:none;margin:0;padding:0;border-top:1px solid rgba(243,238,231,.14)}
+.drawer li{border-bottom:1px solid rgba(243,238,231,.14)}
+.drawer li a{display:flex;align-items:center;justify-content:space-between;font-family:var(--display);text-transform:uppercase;font-size:1.75rem;line-height:1.1;padding:16px 2px;text-decoration:none;color:var(--text-d)}
+.drawer li a i{font-size:1rem;color:var(--muted-d)}
 .drawer li a:hover{color:var(--copper)}
-.drawer-note{color:var(--muted-d);font-size:.95rem;margin:20px 0 0}
+.drawer-hours{margin:22px 0 0;display:grid;gap:4px}
+.drawer-hours p{display:flex;justify-content:space-between;margin:0;font-size:.95rem;color:var(--muted-d)}
+.drawer-hours b{color:var(--text-d);font-weight:600}
 .drawer-foot{margin-top:auto;display:grid;gap:12px}
 .drawer-foot .btn{width:100%}
 .btn-phone{background:var(--text-d);color:var(--ink)}
@@ -105,8 +109,9 @@ body.drawer-open .hamburger{visibility:hidden}
 /* hero */
 .hero{padding:72px 0 56px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:48px;align-items:end}
-.hero h1{font-size:clamp(2.9rem,6.2vw,5.6rem);line-height:.98}
-.hero h1 em{font-style:normal;color:var(--copper)}
+.hero h1{font-size:clamp(3.4rem,7vw,6.4rem);line-height:.96}
+.hero h1 span{display:block}
+.h1-b{font-size:.44em;line-height:1.1;color:var(--copper);margin-top:.5em;letter-spacing:.02em}
 .hero-side{padding-bottom:10px}
 .hero-sub{font-size:1.15rem;color:var(--text-d);max-width:34ch;margin-bottom:24px}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
@@ -140,11 +145,6 @@ section{position:relative}
 .duplex-photo{position:sticky;top:calc(var(--nav-h) + 32px)}
 .duplex-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
 .duplex-photo figcaption{font-size:.9rem;color:var(--muted-l);margin-top:12px}
-.trust-card{margin-top:22px;padding-top:0;display:grid;gap:14px;justify-items:start}
-.trust-line{margin:0 0 14px;font-size:.98rem;color:var(--muted-l)}
-.trust-card .trust-line{margin:0}
-.trust-line b{font-family:var(--display);font-weight:400;font-size:1.35rem;color:var(--text-l);margin-right:2px}
-.trust-line a{color:var(--text-l);font-weight:700;text-underline-offset:3px}
 button{font-family:inherit}
 .prices-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;margin-bottom:36px}
 .ledger{list-style:none;margin:0;padding:0}
@@ -192,55 +192,42 @@ body.modal-open{overflow:hidden}
 .family-copy .ghost{font-size:11rem;bottom:-18px;right:-8px}
 .family-copy h2{margin-bottom:24px;position:relative}
 .family-copy p{position:relative;font-size:1.06rem}
-.facts{list-style:none;padding:0;margin:26px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 24px;position:relative}
-.facts li{font-size:.98rem;color:var(--muted-l)}
-.facts b{display:block;color:var(--text-l);font-size:1.05rem}
 
 /* pay in person */
 .pay{background:var(--ink-2)}
-.pay-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:64px;align-items:center}
-.pay h2{font-size:clamp(2.4rem,4.8vw,4.3rem)}
-.pay h2 em{font-style:normal;color:var(--muted-d)}
-.steps{list-style:none;margin:0;padding:0;counter-reset:s}
-.steps li{counter-increment:s;display:grid;grid-template-columns:56px minmax(0,1fr);gap:18px;padding:18px 0;border-bottom:1px solid rgba(243,238,231,.1)}
-.steps li:last-child{border-bottom:0}
-.steps li::before{content:counter(s);font-family:var(--display);font-size:2.6rem;line-height:1;color:var(--text-d)}
-.steps h3{font-family:var(--body);text-transform:none;letter-spacing:0;font-weight:700;font-size:1.15rem;margin-bottom:4px;line-height:1.3}
-.steps p{margin:0;color:var(--muted-d)}
-.pay-cta{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center}
-.pay-cta span{color:var(--muted-d);font-size:.95rem}
+.pay-top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px;align-items:end}
+.pay h2{font-size:clamp(3rem,6vw,5.4rem);line-height:.96}
+.pay-side p{color:var(--muted-d);font-size:1.08rem;margin-bottom:22px;max-width:40ch}
+.pay-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:64px;padding-top:40px;border-top:1px solid rgba(243,238,231,.12)}
+.pay-cols h3{font-size:1.7rem;margin-bottom:10px}
+.pay-cols p{color:var(--muted-d);margin:0}
 
 /* reviews */
-.rev-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
-.scores{display:flex;gap:36px}
+.rev-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:center}
+.scores{display:flex;gap:36px;margin-top:32px}
 .scores a{text-decoration:none;color:var(--text-l)}
 .scores b{display:block;font-family:var(--display);font-weight:400;font-size:2.8rem;line-height:1}
 .scores span{display:block;color:var(--muted-l);font-size:.95rem;margin-top:4px;text-decoration:underline;text-underline-offset:3px}
-.rev-wall{columns:3;column-gap:24px;margin-top:48px}
-.rv{break-inside:avoid;background:var(--cream-2);border-radius:4px;padding:26px 26px 22px;margin:0 0 24px}
-.rv-stars{color:#7a4719;letter-spacing:3px;font-size:.9rem;margin:0 0 10px}
-.rv-q{font-size:1.04rem;line-height:1.6;margin:0 0 16px}
-.rv-by{font-weight:700;font-size:.98rem;margin:0}
-.rv-by span{display:block;font-weight:400;color:var(--muted-l);font-size:.88rem;margin-top:2px}
-.rv-reply{margin-top:18px;padding:14px 16px;background:var(--cream);border-radius:4px}
-.rv-reply b{display:block;font-size:.9rem;margin-bottom:3px}
-.rv-reply p{margin:0;font-size:.96rem}
-.rv-lead{background:var(--ink);color:var(--text-d)}
-.rv-lead .rv-stars{color:var(--text-d)}
-.rv-lead .rv-q{font-size:1.2rem;line-height:1.55}
-.rv-lead .rv-by span{color:var(--muted-d)}
-.rv-lead .rv-reply{background:var(--ink-3)}
-.rev-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:8px}
-.rail-nav{display:none;gap:8px}
-.rail-nav button{width:48px;height:48px;border:2px solid var(--ink);border-radius:2px;background:transparent;color:var(--ink);font-size:1.1rem;cursor:pointer}
-.rail-nav button:hover{background:var(--ink);color:var(--cream)}
+.rev-intro .h2{font-size:clamp(2.4rem,3.4vw,3.2rem)}
+.rev-slider{min-width:0}
+.rev-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:4px;background:var(--ink)}
+.rev-track::-webkit-scrollbar{display:none}
+.rv{flex:0 0 100%;scroll-snap-align:center;display:flex;flex-direction:column;justify-content:center;min-height:360px;padding:48px 52px;color:var(--text-d);margin:0}
+.rv-stars{letter-spacing:4px;font-size:1rem;margin:0 0 18px;color:var(--text-d)}
+.rv-q{font-size:1.45rem;line-height:1.5;margin:0 0 22px}
+.rv-by{font-weight:700;margin:0}
+.rv-by span{font-weight:400;color:var(--muted-d);margin-left:8px}
+.rv-reply{margin-top:22px;padding:14px 18px;background:var(--ink-3);border-radius:4px;max-width:480px}
+.rv-reply b{display:block;font-size:.88rem;margin-bottom:2px;color:var(--muted-d)}
+.rv-reply p{margin:0;font-size:1rem}
+.rev-controls{display:inline-flex;align-items:center;gap:16px;margin-top:20px;vertical-align:middle}
+.rev-controls button{width:48px;height:48px;border:2px solid var(--ink);border-radius:2px;background:transparent;color:var(--ink);font-size:1.1rem;cursor:pointer}
+.rev-controls button:hover{background:var(--ink);color:var(--cream)}
+.rev-count{font-variant-numeric:tabular-nums;font-weight:700;min-width:44px;text-align:center}
+.rev-foot{display:inline-block;margin:20px 0 0 28px;vertical-align:middle}
 
 /* still deciding */
 .decide-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
-.sig{display:flex;align-items:center;gap:16px;margin-top:26px}
-.sig img{width:72px;height:72px;border-radius:4px;object-fit:cover;object-position:50% 12%;filter:grayscale(1) contrast(1.08)}
-.sig b{display:block}
-.sig span{color:var(--muted-d);font-size:.93rem}
 .acc{list-style:none;margin:0;padding:0}
 .acc-item{border-bottom:1px solid rgba(243,238,231,.12)}
 .acc-item:first-child{border-top:1px solid rgba(243,238,231,.12)}
@@ -281,8 +268,9 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
 .site-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .site-foot a{text-decoration:none}
 .site-foot a:hover{color:var(--text-d);text-decoration:underline}
-.site-foot address{font-size:1rem;line-height:1.7;color:var(--muted-d);overflow-wrap:anywhere}
-.foot-bottom{border-top:1px solid rgba(243,238,231,.1);padding:22px 0 max(22px,env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;font-size:.9rem}
+.site-foot address{font-size:1rem;line-height:1.7;color:var(--muted-d)}
+.foot-bottom{border-top:1px solid rgba(243,238,231,.1);padding:22px 0 max(22px,env(safe-area-inset-bottom));display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 28px;align-items:center;font-size:.9rem}
+.foot-bottom .concept{grid-column:1/-1}
 .concept{flex:1 1 100%;color:#9c9187;font-size:.85rem;margin:0}
 .credit{display:inline-flex;align-items:center;gap:10px;color:var(--muted-d)}
 .credit img{height:20px;width:auto}
@@ -293,7 +281,7 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
 @media (max-width:1100px){
   .nav-links,.nav-cta{display:none}
   .hamburger{display:inline-flex;align-items:center;justify-content:center;margin-left:0}
-  .call-sm{display:inline-flex;margin-left:auto}
+  .call-sm{display:inline-flex;margin-left:auto;margin-right:-20px}
   .crew-grid{gap:32px 20px}
   .bmodal-body{grid-template-columns:minmax(0,1fr);min-height:0}
   .bm-photo img{height:380px}
@@ -311,7 +299,8 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
   .sec{padding:72px 0}
   .hero{padding:32px 0 36px}
   .hero-grid{grid-template-columns:minmax(0,1fr);gap:20px}
-  .hero h1{font-size:2.7rem}
+  .hero h1{font-size:3.6rem}
+  .h1-b{font-size:.4em}
   .hero-sub{font-size:1.05rem;margin-bottom:20px}
   .hero-btns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin-bottom:16px}
   .hero-btns .btn{padding:12px 10px}
@@ -321,7 +310,7 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
   #prices .ghost{display:none}
   .duplex{grid-template-columns:minmax(0,1fr);gap:28px}
   .duplex-photo{position:static;order:-1}
-  .trust-card{justify-items:stretch}
+  .prices-foot .btn{width:100%}
   .duplex-photo img{aspect-ratio:16/9}
   .prices-head{grid-template-columns:minmax(0,1fr);gap:12px;margin-bottom:20px}
   .ledger li{grid-template-columns:minmax(0,1fr) 64px;gap:12px;padding:15px 0}
@@ -341,27 +330,33 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
   .bm-copy p{font-size:.98rem}
   .family-copy{padding:56px var(--pad)}
   .family-copy .ghost{display:none}
-  .pay-grid{grid-template-columns:minmax(0,1fr);gap:28px}
-  .steps li{grid-template-columns:44px minmax(0,1fr);gap:12px;padding:14px 0}
-  .steps li::before{font-size:2.1rem}
-  .rev-head{grid-template-columns:minmax(0,1fr);gap:18px}
+  .pay-top{grid-template-columns:minmax(0,1fr);gap:22px}
+  .pay h2{font-size:3rem}
+  .pay-side .btn{width:100%}
+  .pay-cols{grid-template-columns:minmax(0,1fr);gap:22px;margin-top:36px;padding-top:28px}
+  .pay-cols h3{font-size:1.4rem;margin-bottom:6px}
+  .rev-layout{grid-template-columns:minmax(0,1fr);gap:28px}
+  .scores{margin-top:20px}
   .scores b{font-size:2.2rem}
-  .rev-wall{columns:auto;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:28px calc(-1 * var(--pad)) 0;padding:0 var(--pad) 4px;scroll-padding:0 var(--pad);scrollbar-width:none}
-  .rev-wall::-webkit-scrollbar{display:none}
-  .rv{flex:0 0 84%;scroll-snap-align:center;margin:0;padding:22px 20px 20px}
-  .rv-lead .rv-q{font-size:1.06rem}
-  .rev-foot{margin-top:18px}
-  .rail-nav{display:flex;width:100%}
+  .rv{min-height:300px;padding:28px 22px}
+  .rv-q{font-size:1.1rem}
+  .rv-by span{display:block;margin:2px 0 0}
+  .rev-controls{display:flex;justify-content:center}
+  .rev-foot{display:block;text-align:center;margin:18px 0 0}
   .decide-grid{grid-template-columns:minmax(0,1fr);gap:28px}
   .acc-head{font-size:1.06rem;padding:18px 0}
   .visit-grid{grid-template-columns:minmax(0,1fr);gap:28px;margin-top:24px}
   .map,.map iframe{min-height:260px}
   .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 20px;padding-bottom:40px}
   .foot-brand{grid-column:1/-1}
+  .foot-contact{grid-column:1/-1;order:2}
+  .foot-links{grid-column:1/-1;order:3}
+  .foot-links ul{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 12px}
+  .credit{justify-self:end}
   .site-foot{padding-top:56px}
 }
 @media (max-width:380px){
-  .hero h1{font-size:2.45rem}
+  .hero h1{font-size:3.3rem}
   .barber-name{font-size:1.25rem}
 }
 </style>
@@ -400,13 +395,13 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
     <button class="drawer-close" id="drawerClose" aria-label="Close menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
   </div>
   <ul>
-    <li><a href="#prices">Prices</a></li>
-    <li><a href="#crew">The Crew</a></li>
-    <li><a href="#pay">Pay in Person</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#visit">Visit</a></li>
+    <li><a href="#prices">Prices<i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a></li>
+    <li><a href="#crew">The Crew<i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a></li>
+    <li><a href="#pay">Pay in Person<i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a></li>
+    <li><a href="#reviews">Reviews<i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a></li>
+    <li><a href="#visit">Visit<i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a></li>
   </ul>
-  <p class="drawer-note" data-open-line>Mon, Wed to Fri 10 to 8 · Tue 10 to 6 · Sat 9 to 3</p>
+  <div class="drawer-hours"><p><b>Mon, Wed to Fri</b><span>10 am to 8 pm</span></p><p><b>Tuesday</b><span>10 am to 6 pm</span></p><p><b>Saturday</b><span>9 am to 3 pm</span></p></div>
   <div class="drawer-foot">
     <a class="btn btn-phone" href="tel:+13052345202"><i class="fa-solid fa-phone" aria-hidden="true"></i>305-234-5202</a>
     <a class="btn btn-book" id="drawerBook" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book Now, Pay in Person</a>
@@ -418,7 +413,7 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
 
 <section class="hero" aria-labelledby="h1">
   <div class="wrap hero-grid">
-    <h1 id="h1">No gimmicks. Sucka free. <em>Palmetto Bay's</em> veteran&#8209;owned barbershop</h1>
+    <h1 id="h1"><span class="h1-a">No gimmicks.</span><span class="h1-a">Sucka free.</span><span class="h1-b">Palmetto Bay's veteran&#8209;owned barbershop</span></h1>
     <div class="hero-side">
       <p class="hero-sub">Premium haircuts, shaves, and grooming for men. Quality cuts, real conversations, and a shop where everyone is treated with respect.</p>
       <div class="hero-btns">
@@ -445,16 +440,12 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
     <figure class="duplex-photo" style="margin:0">
       <img src="assets/rome-cutting.jpg" alt="Rome, owner of GC Miami Barbers, detailing a client's fade with clippers and a comb" width="1200" height="900" loading="lazy">
       <figcaption>Rome, El Jefe, at the chair. Cutting since he was 15.</figcaption>
-      <div class="trust-card">
-        <p class="trust-line"><b>4.7</b> on Google from 264 reviews · <a href="#reviews">Read them</a></p>
-        <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book a Cut, Pay in Person</a>
-      </div>
     </figure>
     <div>
       <div class="prices-head">
         <h2 class="h2" id="prices-h">The cut is free, we charge for the therapy</h2>
       </div>
-      <p class="side" style="max-width:52ch;margin-bottom:26px">Affordable quality. Real prices, on the page, no "call for a quote." Book online and pay at the shop.</p>
+      <p class="side" style="max-width:52ch;margin-bottom:26px">Affordable quality.</p>
       <ul class="ledger">
         <li><div><h3>Men's Regular Haircut</h3><p>Classic cuts, fades, tapers, and modern styles.</p></div><span class="price">$30</span></li>
         <li><div><h3>Men's Specialty Haircut</h3><p>Mullets, custom styles, hair designs, and cuts requiring additional detail or time.</p></div><span class="price">$35</span></li>
@@ -464,8 +455,8 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
         <li class="joke"><div><h3>Woman's Mustache Shave</h3><p>You read that right.</p></div><span class="price">Free</span></li>
       </ul>
       <div class="prices-foot">
-        <p><b>Looking for something else?</b> Give the shop a call for additional services and availability.</p>
-        <a class="tlink" href="tel:+13052345202">305-234-5202</a>
+        <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book a Cut</a>
+        <p><b>Looking for something else?</b> Give the shop a call for additional services and availability: <a class="tlink" href="tel:+13052345202">305-234-5202</a></p>
       </div>
     </div>
   </div>
@@ -475,7 +466,7 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
   <div class="wrap">
     <div class="chair-head">
       <h2 class="h2" id="crew-h">Get to know us</h2>
-      <p class="side">Six barbers, six personalities. Pick the chair that fits, read the man behind the clippers, then book with him.</p>
+      <p class="side">Six barbers, six personalities. Tap one to meet him.</p>
     </div>
     <ul class="crew-grid" role="list">
         <li>
@@ -611,83 +602,72 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
       <h2 class="h2" id="about-h">You're family when you're in our chairs</h2>
       <p>GC Miami Barbers is a neighborhood barbershop built on community, respect, and good old-fashioned service. We're locally rooted, veteran-owned, and proud to serve the same community we call home.</p>
       <p>No gimmicks, no attitude, no b.s. Just quality cuts, real conversations, and a shop where everyone is treated with respect and feels welcome. Whether you've been coming here for years or you're walking through our doors for the first time, you're family.</p>
-      <ul class="facts">
-        <li><b>Since 2014</b>Made in Dade</li>
-        <li><b>Veteran owned</b>Rome, Army</li>
-        <li><b>Walk-ins welcome</b>Booking gets you the chair</li>
-        <li><b>Kids $30</b>Same chair, same care</li>
-      </ul>
     </div>
   </div>
 </section>
 
 <section class="pay dark sec" id="pay" aria-labelledby="pay-h">
-  <div class="wrap pay-grid">
-    <div>
-      <h2 id="pay-h">Book online. Pay in person. <em>Don't feed the fee machine.</em></h2>
-      <div class="pay-cta">
+  <div class="wrap">
+    <div class="pay-top">
+      <h2 id="pay-h">Book online.<br>Pay in person.</h2>
+      <div class="pay-side">
+        <p>Don't feed the fee machine. Book your chair online, pick "Pay in Person," and settle up at the shop.</p>
         <a class="btn btn-book" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book Now</a>
-        <span>Cash, card, Zelle, Apple Pay. Whatever works.</span>
       </div>
     </div>
-    <ol class="steps">
-      <li><div><h3>Book the cut</h3><p>Pick your barber and your time online. Takes a minute.</p></div></li>
-      <li><div><h3>Pick "Pay in Person"</h3><p>Skip the damn fees. We'll sort it out when you get here.</p></div></li>
-      <li><div><h3>Don't tip the app</h3><p>Pay at the shop, keep it moving. Use the extra money to buy your barber a colada.</p></div></li>
-    </ol>
+    <div class="pay-cols">
+      <div><h3>Pay in person</h3><p>Cash, card, Zelle, Apple Pay. Whatever works. Just pick "Pay in Person" and we'll sort it out when you get here.</p></div>
+      <div><h3>Skip the damn fees</h3><p>Book the cut. Pay at the shop. Keep it moving. No extra B.S.</p></div>
+      <div><h3>Don't tip the app</h3><p>Pick Pay in Person. Use the extra money to buy your barber a colada.</p></div>
+    </div>
   </div>
 </section>
 
 <section class="cream sec" id="reviews" aria-labelledby="rev-h">
-  <div class="wrap">
-    <div class="rev-head">
+  <div class="wrap rev-layout">
+    <div class="rev-intro">
       <h2 class="h2" id="rev-h">Love us or hate us.<br> Say it with your chest</h2>
       <div class="scores">
         <a href="https://share.google/0dQyRPChGT6IBClJD" target="_blank" rel="noopener"><b>4.7</b><span>264 reviews on Google</span></a>
         <a href="https://www.yelp.com/biz/gc-miami-barbers-shave-and-grooming-co-palmetto-bay" target="_blank" rel="noopener"><b>4.6</b><span>118 reviews on Yelp</span></a>
       </div>
     </div>
-    <div class="rev-wall" id="revWall">
-      <article class="rv rv-lead">
-        <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-        <p class="rv-q">"Every time I walk in here I feel empowered by the awesome quotes and the energy from all the staff. I get a great haircut and always leave feeling more confident than when I walked in. This place is the real deal. If you're looking for a spot for a great haircut experience this is it! Rome will take good care of you."</p>
-        <p class="rv-by">Cayetano Calle <span>Google · Jun 2026</span></p>
-        <div class="rv-reply"><b>Rome, owner</b><p>You are a gentleman and a scholar my friend! Always a pleasure having you on my chair! #respect</p></div>
-      </article>
-      <article class="rv">
-        <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-        <p class="rv-q">"Best barbershop in Miami-Dade. Seriously chill family place with good vibes for everyone."</p>
-        <p class="rv-by">Mike F. <span>Yelp · Oct 2025</span></p>
-      </article>
-      <article class="rv">
-        <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-        <p class="rv-q">"My regular barber for the past five years retired and I found this place through Yelp. Geo took care of me like he'd been cutting my hair for 20 years. Friendly, fast, understood what I wanted with very little explanation and impeccable attention to detail. Best cut I've had in a looong time. Consider me a loyal client."</p>
-        <p class="rv-by">Eric S. <span>Yelp · Jul 2025</span></p>
-      </article>
-      <article class="rv">
-        <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-        <p class="rv-q">"Rome &amp; his crew run a clean shop and super relaxed atmosphere. Affordable and they always show up, hard to find in Miami! Got me looking right for my wedding!"</p>
-        <p class="rv-by">Hart Outfitters <span>Google</span></p>
-      </article>
-      <article class="rv">
-        <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-        <p class="rv-q">"Contacted Rome to see if they had any open chairs (seeing as I'm new in the area and i know how hard it is to get in on a local barber shop). Walked in and Rome had some time before his next slot so he fit me in."</p>
-        <p class="rv-by">Viper Zero <span>Google</span></p>
-        <div class="rv-reply"><b>Rome, owner</b><p>My man!! It was a pleasure taking care of you brother! You're Welcomed on my chair any day! See you in a couple of weeks! Welcome to the neighborhood and thanks for the review!</p></div>
-      </article>
-      <article class="rv">
-        <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-        <p class="rv-q">"I recently brought my son here for a haircut with Rome. It was a great experience and we are very happy with how it turned out! The shop has a good vibe and we will definitely be back :)"</p>
-        <p class="rv-by">Jules E. <span>Yelp · Sep 2025</span></p>
-      </article>
-    </div>
-    <div class="rev-foot">
-      <div class="rail-nav" aria-label="Scroll reviews">
+    <div class="rev-slider">
+      <div class="rev-track" id="revTrack" aria-live="polite">
+        <article class="rv" aria-roledescription="slide" aria-label="Review 1 of 5">
+          <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="rv-q">"I get a great haircut and always leave feeling more confident than when I walked in. This place is the real deal."</p>
+          <p class="rv-by">Cayetano Calle <span>Google · Jun 2026</span></p>
+          <div class="rv-reply"><b>Rome replied</b><p>You are a gentleman and a scholar my friend! …</p></div>
+        </article>
+        <article class="rv" aria-roledescription="slide" aria-label="Review 2 of 5">
+          <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="rv-q">"Geo took care of me like he'd been cutting my hair for 20 years. … Best cut I've had in a looong time. Consider me a loyal client."</p>
+          <p class="rv-by">Eric S. <span>Yelp · Jul 2025</span></p>
+        </article>
+        <article class="rv" aria-roledescription="slide" aria-label="Review 3 of 5">
+          <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="rv-q">"… Walked in and Rome had some time before his next slot so he fit me in."</p>
+          <p class="rv-by">Viper Zero <span>Google</span></p>
+          <div class="rv-reply"><b>Rome replied</b><p>… Welcome to the neighborhood and thanks for the review!</p></div>
+        </article>
+        <article class="rv" aria-roledescription="slide" aria-label="Review 4 of 5">
+          <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="rv-q">"I recently brought my son here for a haircut with Rome. … The shop has a good vibe and we will definitely be back :)"</p>
+          <p class="rv-by">Jules E. <span>Yelp · Sep 2025</span></p>
+        </article>
+        <article class="rv" aria-roledescription="slide" aria-label="Review 5 of 5">
+          <p class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="rv-q">"Best barbershop in Miami-Dade. Seriously chill family place with good vibes for everyone."</p>
+          <p class="rv-by">Mike F. <span>Yelp · Oct 2025</span></p>
+        </article>
+      </div>
+      <div class="rev-controls">
         <button type="button" id="revPrev" aria-label="Previous review"><i class="fa-solid fa-arrow-left-long" aria-hidden="true"></i></button>
+        <span class="rev-count" id="revCount">1 / 5</span>
         <button type="button" id="revNext" aria-label="Next review"><i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></button>
       </div>
-      <a class="btn btn-line" href="https://share.google/0dQyRPChGT6IBClJD" target="_blank" rel="noopener">Read all 264 on Google</a>
-      <a class="tlink" href="https://share.google/0dQyRPChGT6IBClJD" target="_blank" rel="noopener">Been in the chair? Leave yours</a>
+      <div class="rev-foot"><a class="btn btn-line" href="https://share.google/0dQyRPChGT6IBClJD" target="_blank" rel="noopener">Read all 264 on Google</a></div>
     </div>
   </div>
 </section>
@@ -697,10 +677,6 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
     <div>
       <h2 class="h2" id="decide-h">Still deciding?</h2>
       <p class="side" style="margin-top:18px">Fair enough. Here's what people ask before they sit down. Anything else, hit the shop on the horn or send a message. A human answers.</p>
-      <div class="sig">
-        <img src="assets/barber-rome.jpg" alt="" width="72" height="72" loading="lazy">
-        <div><b>Rome</b><span>Owner, GC Miami Barbers</span></div>
-      </div>
     </div>
     <ul class="acc">
       <li class="acc-item open">
@@ -710,10 +686,6 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
       <li class="acc-item">
         <button class="acc-head" aria-expanded="false" aria-controls="a2" id="q2">Do you cut kids?<span class="pm" aria-hidden="true">+</span></button>
         <div class="acc-body" id="a2" role="region" aria-labelledby="q2"><p>All day. Kids Regular Haircut is $30, quality cuts for the little guys. Lino is the one the kids love, and Gio handles the mullets.</p></div>
-      </li>
-      <li class="acc-item">
-        <button class="acc-head" aria-expanded="false" aria-controls="a3" id="q3">How do I pay?<span class="pm" aria-hidden="true">+</span></button>
-        <div class="acc-body" id="a3" role="region" aria-labelledby="q3"><p>Cash, card, Zelle, Apple Pay. Whatever works. Book online, pick "Pay in Person," and we'll sort it out when you get here. No app fees.</p></div>
       </li>
       <li class="acc-item">
         <button class="acc-head" aria-expanded="false" aria-controls="a4" id="q4">What about a straight razor shave?<span class="pm" aria-hidden="true">+</span></button>
@@ -744,7 +716,6 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
             <tr data-d="0"><th scope="row">Sunday</th><td>Closed</td></tr>
           </tbody>
         </table>
-        <p class="trust-line"><b>4.7</b> on Google from 264 reviews · <a href="#reviews">Read them</a></p>
         <div class="visit-btns">
           <a class="btn btn-book full" href="https://getsquire.com/booking/book/gc-miami-barbers-or-cut-and-shaves-palmetto-bay" target="_blank" rel="noopener">Book Now, Pay in Person</a>
           <a class="btn btn-line" href="tel:+13052345202">Call 305-234-5202</a>
@@ -774,7 +745,7 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
           <a href="https://wa.me/13057441862" target="_blank" rel="noopener" aria-label="Message GC Miami Barbers on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
         </div>
       </div>
-      <div>
+      <div class="foot-links">
         <h2>The shop</h2>
         <ul>
           <li><a href="#prices">Prices</a></li>
@@ -785,7 +756,7 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
           <li><a href="#visit">Visit</a></li>
         </ul>
       </div>
-      <div>
+      <div class="foot-contact">
         <h2>Hit us on the horn</h2>
         <address>
           9835 SW 184th St<br>Miami, FL 33157<br>
@@ -847,12 +818,15 @@ if ('scrollRestoration' in history) { history.scrollRestoration = 'auto'; }
   bm.addEventListener('click', function(e){ if (e.target === bm) closeBarber(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !bm.hidden) closeBarber(); });
 
-  /* reviews rail (mobile) */
-  var rail = document.getElementById('revWall'), rp = document.getElementById('revPrev'), rn = document.getElementById('revNext');
-  if (rail && rp && rn) {
-    var step = function(){ var c = rail.querySelector('.rv'); return c ? c.getBoundingClientRect().width + 14 : 320; };
-    rp.addEventListener('click', function(){ rail.scrollBy({left: -step(), behavior:'smooth'}); });
-    rn.addEventListener('click', function(){ rail.scrollBy({left: step(), behavior:'smooth'}); });
+  /* reviews slider */
+  var track = document.getElementById('revTrack'), rp = document.getElementById('revPrev'), rn = document.getElementById('revNext'), rc = document.getElementById('revCount');
+  if (track && rp && rn) {
+    var slides = track.querySelectorAll('.rv'), n = slides.length;
+    var idx = function(){ return Math.round(track.scrollLeft / track.clientWidth); };
+    var go = function(i){ i = (i + n) % n; track.scrollTo({left: i * track.clientWidth, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); };
+    rp.addEventListener('click', function(){ go(idx() - 1); });
+    rn.addEventListener('click', function(){ go(idx() + 1); });
+    var t; track.addEventListener('scroll', function(){ clearTimeout(t); t = setTimeout(function(){ rc.textContent = (idx() + 1) + ' / ' + n; }, 60); });
   }
 
   /* accordion */
