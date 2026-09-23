@@ -89,6 +89,8 @@ main:focus{outline:none}
 .drawer{position:absolute;top:0;right:0;pointer-events:auto;width:min(86vw,380px);height:100dvh;background:var(--ink-2);z-index:100;transform:translateX(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;padding:max(20px,env(safe-area-inset-top)) 28px max(24px,env(safe-area-inset-bottom));visibility:hidden}
 .drawer.open{transform:none;visibility:visible}
 .drawer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.drawer-brand{display:flex;align-items:center;gap:12px}
+.drawer-brand span{font-family:var(--display);text-transform:uppercase;font-size:1.3rem;letter-spacing:.03em;line-height:1}
 .drawer-top img{width:52px;height:52px;border-radius:50%}
 .drawer-close{background:none;border:0;color:var(--text-d);width:48px;height:48px;font-size:1.6rem;cursor:pointer}
 .drawer ul{list-style:none;margin:0;padding:0;border-top:1px solid rgba(243,238,231,.14)}
@@ -168,17 +170,17 @@ button{font-family:inherit}
 .barber-tag{color:var(--muted-d);font-size:.98rem;margin-top:6px}
 .barber-more{margin-top:10px;color:var(--copper);font-weight:700;font-size:.95rem;text-decoration:underline;text-underline-offset:4px}
 .barber-open:hover .barber-more{color:var(--copper-hi)}
-.bmodal{position:fixed;inset:0;z-index:120;height:100dvh;background:rgba(0,0,0,.74);display:flex;align-items:center;justify-content:center;padding:max(20px,env(safe-area-inset-top)) 20px max(20px,env(safe-area-inset-bottom))}
+.bmodal{position:fixed;inset:0;z-index:120;height:100dvh;background:rgba(18,15,15,.35);display:flex;align-items:center;justify-content:center;padding:max(32px,env(safe-area-inset-top)) 24px max(32px,env(safe-area-inset-bottom))}
 .bmodal[hidden]{display:none}
-.bmodal-card{position:relative;width:100%;max-width:1060px;max-height:calc(100dvh - 40px);overflow:auto;background:var(--ink-2);border-radius:4px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.bmodal-card{position:relative;width:100%;max-width:820px;max-height:calc(100dvh - 64px);overflow:auto;background:var(--ink-2);border-radius:4px;box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 0 1px rgba(243,238,231,.08)}
 .bmodal-close{position:absolute;top:10px;right:10px;z-index:2;width:48px;height:48px;border:0;border-radius:2px;background:var(--ink);color:var(--text-d);font-size:1.4rem;cursor:pointer}
-.bmodal-body{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);min-height:560px}
+.bmodal-body{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:460px}
 .bm-photo{background:#0b0909;min-height:100%}
 .bm-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;filter:grayscale(1) contrast(1.08)}
-.bm-copy{padding:52px 48px 44px}
-.bm-copy h3{font-size:2.8rem;margin-bottom:6px;padding-right:48px}
+.bm-copy{padding:40px 36px 34px}
+.bm-copy h3{font-size:2.3rem;margin-bottom:6px;padding-right:48px}
 .bm-tag{color:var(--muted-d);font-weight:700;margin-bottom:20px}
-.bm-copy p{font-size:1.02rem}
+.bm-copy p{font-size:.98rem}
 .b-rev{margin:22px 0 26px;padding:16px 20px;background:var(--ink-3);border-radius:4px}
 .b-rev p{margin:0 0 6px;font-size:1rem}
 .b-rev cite{font-style:normal;color:var(--muted-d);font-size:.9rem}
@@ -284,7 +286,7 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
   .call-sm{display:inline-flex;margin-left:auto;margin-right:-20px}
   .crew-grid{gap:32px 20px}
   .bmodal-body{grid-template-columns:minmax(0,1fr);min-height:0}
-  .bm-photo img{height:380px}
+  .bm-photo img{height:300px}
   .family{grid-template-columns:minmax(0,1fr)}
   .family-photo img{min-height:0;height:auto;aspect-ratio:1440/937}
   .family-copy{padding:72px var(--pad)}
@@ -322,11 +324,11 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
   .barber-name{font-size:1.45rem;margin-top:12px}
   .barber-tag{font-size:.86rem;line-height:1.35}
   .barber-more{font-size:.88rem;margin-top:8px}
-  .bmodal{padding:12px}
-  .bmodal-card{max-height:calc(100dvh - 24px)}
-  .bm-photo img{height:340px}
-  .bm-copy{padding:26px 20px 28px}
-  .bm-copy h3{font-size:2.1rem}
+  .bmodal{padding:max(56px,env(safe-area-inset-top)) 18px max(40px,env(safe-area-inset-bottom))}
+  .bmodal-card{max-height:calc(100dvh - 96px)}
+  .bm-photo img{height:230px}
+  .bm-copy{padding:22px 20px 24px}
+  .bm-copy h3{font-size:1.9rem}
   .bm-copy p{font-size:.98rem}
   .family-copy{padding:56px var(--pad)}
   .family-copy .ghost{display:none}
@@ -391,7 +393,7 @@ address span{display:block;color:var(--muted-l);font-size:.96rem}
 <div class="overlay" id="navOverlay"></div>
 <div class="drawer-wrap"><aside class="drawer" id="navDrawer" aria-hidden="true" aria-label="Menu">
   <div class="drawer-top">
-    <img src="assets/gcmb-crest.jpg" alt="" width="52" height="52">
+    <span class="drawer-brand"><img src="assets/gcmb-crest.jpg" alt="" width="52" height="52"><span>GC Miami Barbers</span></span>
     <button class="drawer-close" id="drawerClose" aria-label="Close menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
   </div>
   <ul>
